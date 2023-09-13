@@ -11,6 +11,10 @@ const prevButton = document.querySelector('.up-lf');
 const thumbNail = document.querySelector('.thumb-nail-lf');
 
 let counterImg = 0;
+let flagLeast = 0;
+let flagFirst = 1;
+let flagResetNext = 0;
+let flagResetPrev = 0;
 
 
 imagesContainer.innerHTML = '';
@@ -37,36 +41,82 @@ thumbCollection[counterImg].classList.add('active-lf');
 nextButton.addEventListener('click', nextImg);
 prevButton.addEventListener('click', prevImg);
 
-prevButton.classList.add('d-none');
+// prevButton.classList.add('d-none');
 
 
 function nextImg (){
-  // console.log('next');
-  prevButton.classList.remove('d-none');
+  flagFirst = 0;
 
-  itemsCollection[counterImg].classList.add('d-none');
-  thumbCollection[counterImg].classList.remove('active-lf');
-  counterImg++;
-  thumbCollection[counterImg].classList.add('active-lf');
-  itemsCollection[counterImg].classList.remove('d-none');
+  if(flagLeast){
+    //console.log('sono entrato nell\' if 1');
+    itemsCollection[counterImg].classList.add('d-none');
+    thumbCollection[counterImg].classList.remove('active-lf');
+    counterImg = 0;
+    thumbCollection[counterImg].classList.add('active-lf');
+    itemsCollection[counterImg].classList.remove('d-none');
+    
+    flagLeast = 0;
+    flagResetNext = 1;
+    flagFirst = 1;
+  }
+  // prevButton.classList.remove('d-none');
+  if(!flagResetNext){
+    //console.log('sono entrato nell\' if 2');
+    itemsCollection[counterImg].classList.add('d-none');
+    thumbCollection[counterImg].classList.remove('active-lf');
+    
+    counterImg++;
+
+    thumbCollection[counterImg].classList.add('active-lf');
+    itemsCollection[counterImg].classList.remove('d-none');
+  }else{
+    flagResetNext = 0;
+  }
+  
+  
 
   if(counterImg === itemsCollection.length - 1){
-    nextButton.classList.add('d-none');
+    // nextButton.classList.add('d-none');
+    flagLeast = 1;
   }
+
+  console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
 }
 
 function prevImg () {
-  nextButton.classList.remove('d-none');
+  if(flagFirst){
+    itemsCollection[counterImg].classList.add('d-none');
+    thumbCollection[counterImg].classList.remove('active-lf');
+    counterImg = itemsCollection.length - 1;
+    thumbCollection[counterImg].classList.add('active-lf');
+    itemsCollection[counterImg].classList.remove('d-none');
+    
+    flagFirst = 0;
+    flagResetPrev = 1;
+    flagLeast = 1;
+  }
 
-  itemsCollection[counterImg].classList.add('d-none');
-  thumbCollection[counterImg].classList.remove('active-lf');
-  counterImg--;
-  itemsCollection[counterImg].classList.remove('d-none');
-  thumbCollection[counterImg].classList.add('active-lf');
+  // nextButton.classList.remove('d-none');
+
+  if(!flagResetPrev){
+    //console.log('sono entrato nell\' if 2');
+    itemsCollection[counterImg].classList.add('d-none');
+    thumbCollection[counterImg].classList.remove('active-lf');
+    
+    counterImg--;
+
+    thumbCollection[counterImg].classList.add('active-lf');
+    itemsCollection[counterImg].classList.remove('d-none');
+  }else{
+    flagResetPrev = 0;
+  }
 
   if(counterImg === 0){
-    prevButton.classList.add('d-none');
+    // prevButton.classList.add('d-none');
+    flagFirst = 1;
   }
+
+  console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
 }
 
 
