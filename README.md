@@ -37,3 +37,14 @@ Non lasciamoci spaventare dalla complessità apparente dell’esercizio, ma anal
 2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 
 3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: “Quanti cicli servono?” 
+
+______
+
+Svolgimento
+===
+
+1. Valorizzare un array di sorgenti di foto 
+
+1. con un ciclo metterle dentro all'html
+
+1. creare un array di elementi html img ai quali dare delle classi attraverso il click dei bottoni 
