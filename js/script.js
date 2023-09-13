@@ -80,7 +80,7 @@ function nextImg (){
     flagLeast = 1;
   }
 
-  console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
+  //console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
 }
 
 function prevImg () {
@@ -120,7 +120,7 @@ function prevImg () {
     flagFirst = 1;
   }
 
-  console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
+  //console.log('c: '+counterImg,'fL: ' + flagLeast, 'fRN: ' + flagResetNext,'fF: ' + flagFirst, 'fRP: ' + flagResetPrev);
 }
 
 
