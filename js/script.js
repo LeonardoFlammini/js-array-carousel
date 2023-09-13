@@ -84,6 +84,10 @@ function nextImg (){
 }
 
 function prevImg () {
+  if(flagLeast){
+    flagLeast = 0;
+  }
+
   if(flagFirst){
     itemsCollection[counterImg].classList.add('d-none');
     thumbCollection[counterImg].classList.remove('active-lf');
